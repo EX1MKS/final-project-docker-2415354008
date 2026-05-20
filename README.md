@@ -1,6 +1,25 @@
-# Final Project Docker Deployment
+# Laporan Hasil Praktikum: Final Project Docker Deployment
 
-## Deskripsi Project
+## Identitas Mahasiswa
+
+- **Nama:** Eki Mukhlis
+- **NIM:** 2415354008
+- **Kelas/Rombel:** TRPL 4D
+- **Tanggal Praktikum:** 20 Mei 2026
+
+---
+
+# Teknologi & Tools yang Digunakan
+
+- **Sistem Operasi:** Windows 11
+- **Containerization:** Docker & Docker Compose
+- **Bahasa Pemrograman:** Node.js
+- **Database:** MySQL
+- **Tools Lain:** VS Code, Git, Postman, Docker Hub
+
+---
+
+# Deskripsi Project
 
 Project ini merupakan implementasi multi-container application menggunakan Docker dan Docker Compose menggunakan Node.js dan MySQL.
 
@@ -34,9 +53,13 @@ project-app/
 
 ---
 
-# Menjalankan Project
+# Langkah-Langkah Praktikum & Dokumentasi
 
-Menjalankan project menggunakan Docker Compose:
+## Langkah 1: Menjalankan Docker Compose
+
+Pada langkah ini dilakukan proses build dan menjalankan multi-container application menggunakan Docker Compose.
+
+Command:
 
 ```bash
 docker compose up --build
@@ -48,25 +71,14 @@ Hasil:
 - Database MySQL berhasil berjalan
 - Backend berhasil terhubung dengan database
 
----
-
-# 1. Pengujian Docker Compose, Volume, Network, dan Container
-
-## Pengujian Docker Compose
-
-Command:
-
-```bash
-docker compose up
-```
-
-Hasil:
-
-Docker Compose berhasil menjalankan multi-container application tanpa error.
+**Dokumentasi/Screenshot:**  
+![Docker Compose](img/docker-compose.png)
 
 ---
 
-## Pengujian Container
+## Langkah 2: Pengujian Container Docker
+
+Pada langkah ini dilakukan pengecekan container yang sedang berjalan.
 
 Command:
 
@@ -81,9 +93,14 @@ Container yang berjalan:
 - user-service-app
 - mysql-db
 
+**Dokumentasi/Screenshot:**  
+![Docker PS](img/docker-ps.png)
+
 ---
 
-## Pengujian Docker Volume
+## Langkah 3: Pengujian Docker Volume
+
+Pada langkah ini dilakukan pengecekan Docker Volume yang digunakan untuk menyimpan data database MySQL.
 
 Command:
 
@@ -95,9 +112,14 @@ Hasil:
 
 Docker Volume `mysql_data` berhasil dibuat dan digunakan untuk menyimpan data MySQL.
 
+**Dokumentasi/Screenshot:**  
+![Docker Volume](img/docker-volume.png)
+
 ---
 
-## Pengujian Docker Network
+## Langkah 4: Pengujian Docker Network
+
+Pada langkah ini dilakukan pengecekan Docker Network yang digunakan untuk komunikasi antar container.
 
 Command:
 
@@ -109,9 +131,12 @@ Hasil:
 
 Docker Network berhasil dibuat dan container backend serta database dapat saling terhubung.
 
+**Dokumentasi/Screenshot:**  
+![Docker Network](img/docker-network.png)
+
 ---
 
-# 2. Pengujian Endpoint API
+## Langkah 5: Pengujian Endpoint API
 
 Base URL:
 
@@ -119,9 +144,7 @@ Base URL:
 http://localhost:3000
 ```
 
----
-
-## GET /users
+### GET /users
 
 Request:
 
@@ -141,7 +164,7 @@ Endpoint GET berhasil menampilkan data user.
 
 ---
 
-## POST /users
+### POST /users
 
 Request:
 
@@ -173,7 +196,7 @@ Data user berhasil ditambahkan ke database.
 
 ---
 
-## PUT /users/1
+### PUT /users/1
 
 Request:
 
@@ -204,7 +227,7 @@ Data user berhasil diperbarui.
 
 ---
 
-## DELETE /users/1
+### DELETE /users/1
 
 Request:
 
@@ -224,11 +247,20 @@ Hasil:
 
 Data user berhasil dihapus dari database.
 
+**Dokumentasi/Screenshot:**  
+![API Endpoint Testing]
+(img/post.png)
+(img/get.png)
+(img/edit.png)
+(img/delete.png)
+
 ---
 
-# 3. Pengujian Upload ke Docker Hub
+## Langkah 6: Pengujian Upload ke Docker Hub
 
-## Login Docker Hub
+Pada langkah ini dilakukan proses login, build image, dan upload image ke Docker Hub.
+
+### Login Docker Hub
 
 ```bash
 docker login
@@ -236,7 +268,7 @@ docker login
 
 ---
 
-## Build Docker Image
+### Build Docker Image
 
 ```bash
 docker build -t username/user-service ./app
@@ -244,7 +276,7 @@ docker build -t username/user-service ./app
 
 ---
 
-## Push Docker Image
+### Push Docker Image
 
 ```bash
 docker push username/user-service
@@ -254,11 +286,12 @@ Hasil:
 
 Docker image berhasil diupload ke Docker Hub.
 
+**Dokumentasi/Screenshot:**  
+![Docker Hub Push](img/dockerhub-push.png)
+
 ---
 
-# 4. Pengujian Tambahan
-
-## Pengujian Environment Variable
+## Langkah 7: Pengujian Environment Variable
 
 Aplikasi berhasil menggunakan environment variable dari file `.env`.
 
@@ -273,9 +306,16 @@ DB_PORT=3306
 PORT=3000
 ```
 
+Hasil:
+
+Environment variable berhasil digunakan oleh aplikasi backend dan database.
+
+**Dokumentasi/Screenshot:**  
+![Environment Variable](img/env-testing.png)
+
 ---
 
-## Pengujian Multi-Container Architecture
+## Langkah 8: Pengujian Multi-Container Architecture
 
 Project terdiri dari:
 
@@ -283,6 +323,9 @@ Project terdiri dari:
 - Database container MySQL
 
 Kedua container berhasil berjalan secara terpisah dan saling terhubung menggunakan Docker Compose.
+
+**Dokumentasi/Screenshot:**  
+![Multi Container](img/docker-ps.png)
 
 ---
 
@@ -304,3 +347,5 @@ Seluruh service berhasil berjalan dengan baik menggunakan perintah:
 ```bash
 docker compose up
 ```
+
+Praktikum ini memberikan pemahaman mengenai implementasi containerization menggunakan Docker serta pengelolaan multi-container application menggunakan Docker Compose.
