@@ -248,11 +248,10 @@ Hasil:
 Data user berhasil dihapus dari database.
 
 **Dokumentasi/Screenshot:**  
-![API Endpoint Testing]
-(img/post.png)
-(img/get.png)
-(img/edit.png)
-(img/delete.png)
+![API POST](img/post.png)
+![API GET](img/get.png)
+![API EDIT](img/edit.png)
+![API DELETE](img/delete.png)
 
 ---
 
